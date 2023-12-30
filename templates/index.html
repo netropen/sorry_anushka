@@ -1,0 +1,39 @@
+<!-- Inside index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apology WebSite</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Anushka I didnt mean the last 2 messages like that, and I am really very sorry about it, I guess you can find a little forgivenss for me in your heart</h1>
+    <div class="button-container">
+        <button onclick="showForgivenessPopup()">Forgive Me?</button>
+    </div>
+
+    <div id="forgivenessPopup" class="popup">
+        <p>Please forgive me.</p>
+        <button onclick="handleForgiveness(true)">Yes</button>
+        <button onclick="handleForgiveness(false)">No</button>
+    </div>
+
+    <script>
+        function showForgivenessPopup() {
+            var popup = document.getElementById("forgivenessPopup");
+            popup.style.display = "block";
+        }
+
+        function handleForgiveness(forgiven) {
+            if (forgiven) {
+                window.location.href = "/forgiven";
+            } else {
+                window.location.href = "/not_forgiven";
+            }
+        }
+    </script>
+</body>
+</html>

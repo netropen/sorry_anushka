@@ -1,0 +1,33 @@
+<!-- Inside result.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apology WebSite</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="option-box">
+        <button class="option-button yes" onclick="handleForgiveness(true)">Yes</button>
+        <button class="option-button no" onclick="handleForgiveness(false)">No</button>
+    </div>
+    <h1 id="message"></h1>
+
+    <script>
+        // Function to handle forgiveness options
+        function handleForgiveness(forgiven) {
+            if (forgiven) {
+                document.getElementById('message').innerText = "Thank you for forgiving!";
+            } else {
+                document.getElementById('message').innerText = "Forgiveness declined. Please consider forgiving in the future.";
+                setTimeout(function(){
+                    window.location.href = "/";
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
